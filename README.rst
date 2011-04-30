@@ -4,7 +4,8 @@
 
 Requirements
 ============
-* Django 
+* Django
+* `facebook_sdk`_
 .. _facebook_sdk: https://github.com/facebook/python-sdk
 
 
@@ -31,6 +32,6 @@ At the url /canvas/  you'll find a view that:
 * If the application is authorized, creates an instance of a FacebookUser model containing some of the user's data
 * That's all...
 
-
+Thanks to Sulil Arora for sharing this snippet, it helped a lot: http://sunilarora.org/parsing-signedrequest-parameter-in-python-bas  
 
 
