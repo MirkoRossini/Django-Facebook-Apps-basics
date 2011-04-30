@@ -1,0 +1,10 @@
+*.pyc
+*~
+.hg*
+.db*
+.pydevproject
+facebook_settings_mine.py
+.project
+django_redis_engine.egg-info
+build
+.build
