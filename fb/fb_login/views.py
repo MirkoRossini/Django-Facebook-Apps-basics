@@ -47,10 +47,16 @@ def canvas(request):
   f = facebook.GraphAPI(oauth_token)
   user_data = f.get_object(user_id)
   if u is None:
-    user = User.objects.create(username = user_data.get('username',user_id),
-				first_name = user_data.get('first_name',''),
-                                last_name = user_data.get('last_name',''),
-                        password = md5(user_data.get('username','')+str(random.random())).hexdigest())
+    username = user_data.get('username',user_id)
+    password = md5(user_data.get('username','')+str(random.random())).hexdigest()
+    user = User.objects.create_user(username = username,
+                                email = '',
+                                password = password,
+                                )
+    user.first_name = user_data.get('first_name','')
+    user.last_name = user_data.get('last_name','')
+    user.save()
+
     u = FacebookUser.objects.create(user = user,
 				id = user_id) 
   return HttpResponse('<a href="/canvas/">/canvas/</a>')
